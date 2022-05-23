@@ -131,7 +131,7 @@ class _homeState extends State<home> {
         ),
         body: ListView(
           children: [
-            Tv_shows(tv: tv),
+            // Tv_shows(tv: tv),
             // TrendingMovies(
             //   trending: trendingmovies,
             // ),
