@@ -9,7 +9,7 @@ class TrendingMovies extends StatelessWidget {
   const TrendingMovies({required this.trending});
   @override
   Widget build(BuildContext context) {
-    print('waterrrrr');
+    
 
     // for (int id in trending) {
     //   print(results[4].key);

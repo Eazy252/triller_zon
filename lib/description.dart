@@ -3,8 +3,7 @@ import 'package:triller_zone/utilities/text.dart';
 
 class Description extends StatelessWidget {
   final String name, description, bannerurl, posterurl, vote, launch_on;
- // int id;
-  //id;  id
+
 
  Description({
     Key? key,
@@ -65,35 +64,7 @@ class Description extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 child: Styledtext(thetext: name, size: 24),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.thumb_up,
-                  color: Colors.black,
-                  size: 30.0,
-                ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.thumb_down,
-                  color: Colors.black,
-                  size: 30.0,
-                ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.play_circle,
-                  color: Colors.black,
-                  size: 30.0,
-                ),
-              ),
-              // Styledtext(
-              //   thetext: id,
-              //   size: 20,
-              //   color: Colors.red,
-              // )
+             
             ],
           ),
           Column(

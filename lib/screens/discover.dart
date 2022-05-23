@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tmdb_api/tmdb_api.dart';
+import 'package:triller_zone/screens/trendingmovies.dart';
 import 'package:triller_zone/stack.dart';
+import 'trendingmovies.dart';
 
 class discover extends StatefulWidget {
   @override
@@ -25,7 +27,6 @@ class _discoverState extends State<discover> {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
-                  
                   color: Colors.amber,
                   child: GestureDetector(
                     child: Image.asset(

@@ -1,37 +1,35 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class MovieModel {
-  final String name;
-  final String description;
-  final String bannerurl;
-  final String posterurl;
-  final String vote;
-  final String launchOn;
-  final String id;
+  final String title;
+  final String overview;
+  final String backdrop_path;
+  final String poster_path;
+  //final String vote_count;
+  final String release_date;
+  //final String id;
 
   MovieModel({
-    required this.name,
-    required this.description,
-    required this.bannerurl,
-    required this.posterurl,
-    required this.vote,
-    required this.launchOn,
-    required this.id,
+    required this.title,
+    required this.overview,
+    required this.backdrop_path,
+    required this.poster_path,
+    //required this.vote_count,
+    required this.release_date,
+    //required this.id,
   });
 
-  factory MovieModel.fromJson(Map<String, dynamic> json) {
+  static MovieModel fromJson(Map<String, dynamic> map) {
     return MovieModel(
-      name: json['name'],
-      description: json['description'],
-      bannerurl: json['bannerurl'],
-      posterurl: json['posterurl'],
-      vote: json['vote'],
-      launchOn: json['launchOn'],
-      id: json['id'],
+      title: map['title'],
+      overview: map['overview'],
+      backdrop_path: map['backdrop_path'],
+      poster_path: map['poster_path'],
+      // vote_count: map['vote_count'].toString(),
+      release_date: map['release_date'],
+      //id: map['id'].toString(),
     );
   }
 }
@@ -47,14 +45,18 @@ class MovieService extends ChangeNotifier {
           'https://api.themoviedb.org/3/trending/all/day?api_key=$ApiKey'),
     );
 
-    var newResponse = await jsonDecode(response.body);
+    var newResponse = await jsonDecode(response.body)['results'] as List<dynamic>;
 
-    var rest = newResponse as List;
+    for (var element in newResponse) {
+      var finalResult = MovieModel.fromJson(newResponse[element]);
+      print(finalResult.title);
+    }
+    // MovieList.forEach((element) {
+    //   print(element.title);
+    // });
 
-    var list = rest.map<MovieModel>((json) => MovieModel.fromJson(json));
+    //var finalResult = MovieModel.fromJson(newResponse[0]);
 
-    print(list);
-
-    // log(newResponse['results'].toString());
+    //print(finalResult.title);
   }
 }
