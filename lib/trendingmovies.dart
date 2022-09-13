@@ -17,9 +17,15 @@ class TrendingMovies extends StatelessWidget {
           return Column(
             children: <Widget>[
               Container(
-                color: green,
-                height: 200.0,
-                child: ReusableText(text: [index].toString()),
+                margin: const EdgeInsets.only(left: 10.0, right: 5.0, top: 5.0),
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30.0),
+                  ),
+                  color: Colors.brown,
+                ),
+                width: 120.0,
+                height: 170,
               ),
               ReusableText(text: loading)
             ],
@@ -54,7 +60,7 @@ class TrendingMovies extends StatelessWidget {
                             Container(
                               color: green,
 
-                              /*  decoration: BoxDecoration(
+                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: NetworkImage(
                                     'https://image.tmdb.org/t/p/w500' +
@@ -62,7 +68,7 @@ class TrendingMovies extends StatelessWidget {
                                   ),
                                 ),
                               ) ,
-                              */
+                             
                             ),
                             ReusableText(
                                 text: trending[index]['title'] ?? loading)

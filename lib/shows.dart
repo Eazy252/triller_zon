@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:triller_zone/reusables/reusableStrings.dart';
-import 'package:triller_zone/reusables/reusabletext.dart';
 
 class Shows extends StatelessWidget {
-  const Shows({Key? key}) : super(key: key);
+  final List trending;
+  const Shows({Key? key, required this.trending}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +17,24 @@ class Shows extends StatelessWidget {
             child: ListView.builder(
                 padding: const EdgeInsets.all(16),
                 scrollDirection: Axis.horizontal,
-                itemCount: 8,
+                itemCount: trending.length,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(50),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          color: Colors.brown,
+                        margin: const EdgeInsets.only(
+                            left: 10.0, right: 5.0, top: 5.0),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://image.tmdb.org/t/p/w500' +
+                                  trending[index]['backdrop_path'],
+                            ),
+                          ),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(30.0),
+                          ),
+                          // color: Colors.brown,
                         ),
                         width: 120.0,
                         height: 170,
@@ -35,17 +43,6 @@ class Shows extends StatelessWidget {
                   );
                 }),
           ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Colors.lightBlueAccent,
-            ),
-          ),
-          Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.deepOrange,
-              ))
         ],
       ),
     )));

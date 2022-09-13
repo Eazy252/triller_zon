@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 import 'package:triller_zone/reusables/reusableStrings.dart';
+import 'package:triller_zone/shows.dart';
 import 'package:triller_zone/trendingmovies.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -43,16 +44,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(theAppName),
-      ),
-      body: ListView(
-        children: [
-          Expanded(
-            child: TrendingMovies(trending: trendingMovies),
-          )
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text(theAppName),
+        ),
+        body: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Shows(
+                  trending: [trendingMovies],
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Colors.lightGreenAccent,
+                ),
+              ),
+            ],
+          ),
+        )));
   }
 }
