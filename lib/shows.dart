@@ -17,7 +17,7 @@ class Shows extends StatelessWidget {
             child: ListView.builder(
                 padding: const EdgeInsets.all(16),
                 scrollDirection: Axis.horizontal,
-                itemCount: trending.length,
+                itemCount: 8,
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
@@ -25,16 +25,17 @@ class Shows extends StatelessWidget {
                         margin: const EdgeInsets.only(
                             left: 10.0, right: 5.0, top: 5.0),
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              'https://image.tmdb.org/t/p/w500' +
-                                  trending[index]['backdrop_path'],
-                            ),
-                          ),
+                          // image: DecorationImage(
+                          //   image: NetworkImage(
+                          //     'https://image.tmdb.org/t/p/w500' +
+                          //         trending[index]['backdrop_path'],
+                          //   ),
+                          // ),
                           borderRadius: const BorderRadius.all(
                             Radius.circular(30.0),
                           ),
-                          // color: Colors.brown,
+
+                          color: Colors.brown,
                         ),
                         width: 120.0,
                         height: 170,
