@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:599591912347:android:e25b62f7a6cace3eb1573e",
+        "android_client_info": {
+          "package_name": "com.example.triller_zon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599591912347-0dr504u08r7tckpe1lg7tkf96a5cq288.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS5YCf5THWhyWtTNkK9FiE9iKl63PmVy0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599591912347-0dr504u08r7tckpe1lg7tkf96a5cq288.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:599591912347:android:6db48bf47cf15b46b1573e",
         "android_client_info": {
           "package_name": "com.isreal.thriller"
