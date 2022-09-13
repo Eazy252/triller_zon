@@ -1,10 +1,11 @@
 import 'package:triller_zone/controller/movie_provider.dart';
+import 'package:triller_zone/firebase_options.dart';
 
 import 'utils/utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const Home());
 }
 
