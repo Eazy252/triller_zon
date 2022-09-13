@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.isreal.thriller">
+    package="com.example.triller_zon">
    <application
-        android:label="triller_zone"
+        android:label="triller_zon"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

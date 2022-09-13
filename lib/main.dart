@@ -18,13 +18,9 @@ class Home extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<MovieProvider>(create: (_) => MovieProvider()),
       ],
-      child: MaterialApp(
-        home: const PopularMoviesScreen(),
+      child: const MaterialApp(
+        home: PopularMoviesScreen(),
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
       ),
     );
   }

@@ -26,7 +26,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -51,19 +54,9 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDS5YCf5THWhyWtTNkK9FiE9iKl63PmVy0',
-    appId: '1:599591912347:android:6db48bf47cf15b46b1573e',
+    appId: '1:599591912347:android:0d4cbeb370a6f173b1573e',
     messagingSenderId: '599591912347',
     projectId: 'thriller-9bd8f',
     storageBucket: 'thriller-9bd8f.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAp7U225umKfL4cKhJ_-Xdp3NAKfr9cnmc',
-    appId: '1:599591912347:ios:8a106e1bbf9c4289b1573e',
-    messagingSenderId: '599591912347',
-    projectId: 'thriller-9bd8f',
-    storageBucket: 'thriller-9bd8f.appspot.com',
-    iosClientId: '599591912347-1lhdokt0o9k54f6d4oh8ardrrn0t4988.apps.googleusercontent.com',
-    iosBundleId: 'com.example.trillerZone',
   );
 }
