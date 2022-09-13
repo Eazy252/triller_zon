@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:triller_zone/homeScreen.dart';
+import 'package:triller_zone/shows.dart';
 
 void main() {
   runApp(const Home());
@@ -8,13 +9,13 @@ void main() {
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: Shows(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
     );

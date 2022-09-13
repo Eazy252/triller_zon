@@ -11,7 +11,22 @@ class TrendingMovies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ListView.builder(
+        itemCount: 8,
+        itemBuilder: (context, index) {
+          return Column(
+            children: <Widget>[
+              Container(
+                color: green,
+                height: 200.0,
+                child: ReusableText(text: [index].toString()),
+              ),
+              ReusableText(text: loading)
+            ],
+          );
+        });
+
+/*     Container(
       child: Padding(
         padding: const EdgeInsets.all(18),
         child: Column(
@@ -37,14 +52,17 @@ class TrendingMovies extends StatelessWidget {
                         child: Column(
                           children: [
                             Container(
-                              decoration: BoxDecoration(
+                              color: green,
+
+                              /*  decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: NetworkImage(
                                     'https://image.tmdb.org/t/p/w500' +
                                         trending[index]["backdrop_path"],
                                   ),
                                 ),
-                              ),
+                              ) ,
+                              */
                             ),
                             ReusableText(
                                 text: trending[index]['title'] ?? loading)
@@ -58,5 +76,6 @@ class TrendingMovies extends StatelessWidget {
         ),
       ),
     );
+   */
   }
 }
