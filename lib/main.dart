@@ -1,8 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:triller_zone/homeScreen.dart';
-import 'package:triller_zone/shows.dart';
+import 'package:triller_zone/controller/movie_provider.dart';
 
-void main() {
+import 'utils/utils.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Home());
 }
 
@@ -11,12 +13,17 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomeScreen(),
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<MovieProvider>(create: (_) => MovieProvider()),
+      ],
+      child: MaterialApp(
+        home: const PopularMoviesScreen(),
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
       ),
     );
   }

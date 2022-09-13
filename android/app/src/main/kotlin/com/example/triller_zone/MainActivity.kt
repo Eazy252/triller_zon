@@ -1,4 +1,4 @@
-package com.example.triller_zone
+package com.isreal.thriller
 
 import io.flutter.embedding.android.FlutterActivity
 
