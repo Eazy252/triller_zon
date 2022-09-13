@@ -16,7 +16,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<MovieProvider>(create: (_) => MovieProvider()),
+        ChangeNotifierProvider<MovieProvider>(
+          create: (_) => MovieProvider(),
+        ),
       ],
       child: const MaterialApp(
         home: PopularMoviesScreen(),
