@@ -1,5 +1,3 @@
-import 'package:triller_zone/controller/movie_provider.dart';
-
 import '../../utils/utils.dart';
 
 part 'view.dart';

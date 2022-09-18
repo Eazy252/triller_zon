@@ -1,11 +1,10 @@
 import 'dart:convert';
 
-import 'package:triller_zone/models/api_response.dart';
-import 'package:triller_zone/models/movie_model.dart';
-import 'package:triller_zone/utils/packages_helper.dart';
+import '../utils/utils.dart';
+
 
 class ApiService {
-  final String _baseUrl = 'https://api.themoviedb.org/3/movie/popular';
+  final String _baseUrl = 'https://api.themoviedb.org/3/movie/popular/';
   final String _apiKey = 'a7c5b8a26c4da2662843534f642ca25d';
 
   Future<ApiResponse> getPopularMovies({required int page}) async {
