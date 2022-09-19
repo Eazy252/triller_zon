@@ -27,7 +27,9 @@ class PopularMoviesView
             return ListView.builder(
               itemCount: state.movies!.length,
               itemBuilder: (context, index) => ListTile(
-                title: Text(state.movies![index].title.toString()),
+                title: Text(
+                  state.movies![index].title.toString(),
+                ),
               ),
             );
           }
