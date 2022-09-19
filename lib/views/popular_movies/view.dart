@@ -9,7 +9,7 @@ class PopularMoviesView
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${controller.page}'),
+        title: const Text('Popular Movies'),
       ),
       body: BlocConsumer<GetMoviesBloc, GetMoviesState>(
         listener: (context, state) {
