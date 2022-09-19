@@ -12,8 +12,19 @@ class PopularMoviesScreen extends StatefulWidget {
 class PopularMoviesController extends State<PopularMoviesScreen> {
   int page = 1;
 
-  func() {
-    print('object');
+  @override
+  void initState() {
+    context.read<GetMoviesBloc>().add(GetPopularMovies(page: page));
+    super.initState();
+  }
+
+  getMoviesError(String message) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
+
+  refreshMovies() {
+    context.read<GetMoviesBloc>().add(GetPopularMovies(page: page));
   }
 
   @override

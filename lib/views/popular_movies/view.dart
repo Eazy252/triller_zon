@@ -7,14 +7,38 @@ class PopularMoviesView
 
   @override
   Widget build(BuildContext context) {
-    controller.func();
     return Scaffold(
       appBar: AppBar(
         title: Text('${controller.page}'),
       ),
-      body: Consumer<MovieProvider>(builder: (context, state, child) {
-        return CircularProgressIndicator();
-      }),
+      body: BlocConsumer<GetMoviesBloc, GetMoviesState>(
+        listener: (context, state) {
+          if (state is GetMoviesError) {
+            controller.getMoviesError(state.message!);
+          }
+        },
+        builder: (context, state) {
+          if (state is GetMoviesLoading) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if (state is GetMoviesLoaded) {
+            return ListView.builder(
+              itemCount: state.movies!.length,
+              itemBuilder: (context, index) => ListTile(
+                title: Text(state.movies![index].title.toString()),
+              ),
+            );
+          }
+          return Center(
+            child: ElevatedButton(
+              onPressed: () => controller.refreshMovies(),
+              child: const Text('Refresh'),
+            ),
+          );
+        },
+      ),
     );
   }
 }

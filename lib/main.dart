@@ -1,4 +1,3 @@
-import 'package:triller_zone/controller/movie_provider.dart';
 import 'package:triller_zone/firebase_options.dart';
 
 import 'utils/utils.dart';
@@ -14,11 +13,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
-        ChangeNotifierProvider<MovieProvider>(
-          create: (_) => MovieProvider(),
-        ),
+        BlocProvider(create: (context) => GetMoviesBloc()),
       ],
       child: const MaterialApp(
         home: PopularMoviesScreen(),

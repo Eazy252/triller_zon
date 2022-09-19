@@ -1,9 +1,12 @@
-import 'package:triller_zone/models/api_response.dart';
 import 'package:triller_zone/services/repository.dart';
 
 import '../utils/utils.dart';
 
 class MovieProvider extends ChangeNotifier {
+  MovieProvider._privateConstructor();
+
+  static final MovieProvider instance = MovieProvider._privateConstructor();
+
   final Repository _repository = Repository();
   List<MovieModel> _movies = [];
   List<MovieModel> get movies => _movies;
