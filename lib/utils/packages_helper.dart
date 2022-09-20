@@ -5,3 +5,4 @@ export 'package:firebase_core/firebase_core.dart';
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:equatable/equatable.dart';
+export 'package:cached_network_image/cached_network_image.dart';

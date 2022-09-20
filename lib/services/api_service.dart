@@ -12,9 +12,11 @@ class ApiService {
           Uri.parse('$_baseUrl?api_key=$_apiKey&language=en-US&page=$page'));
       if (response.statusCode == 200) {
         var results = await jsonDecode(response.body)['results'] as List;
+       // print(results);
         List<MovieModel> movies =
             results.map((e) => MovieModel.fromJson(e)).toList();
-        print(movies.length);
+       // print(movies);
+        // print(movies.length);
         return ApiResponse(status: true, movies: movies);
       } else {
         return ApiResponse(status: false, message: 'An Error Occured');
