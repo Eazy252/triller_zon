@@ -1,4 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:triller_zone/utils/packages_helper.dart';
 
-Color black = const Color.fromARGB(255, 8, 8, 8);
-Color green = const Color.fromARGB(255, 0, 255, 0);
+Color yellow = const Color(0xffffc700);
+Color black = const Color(0xff111111);
+Color grey = const Color(0xff888888);
+Color white = const Color(0xffffffff);

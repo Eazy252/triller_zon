@@ -1,10 +1,21 @@
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:triller_zone/firebase_options.dart';
+import 'package:triller_zone/reusables/reusablesColor.dart';
 
 import 'utils/utils.dart';
+import 'views/home/controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      systemNavigationBarColor: black,
+    ),
+  );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const Home());
 }
 
@@ -17,9 +28,17 @@ class Home extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => GetMoviesBloc()),
       ],
-      child: const MaterialApp(
-        home: PopularMoviesScreen(),
-        debugShowCheckedModeBanner: false,
+      child: ScreenUtilInit(
+        designSize: const Size(411, 823),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return MaterialApp(
+            home: child,
+            debugShowCheckedModeBanner: false,
+          );
+        },
+        child: const PopularMoviesScreen(),
       ),
     );
   }

@@ -17,11 +17,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
+  flutter_screenutil: ^5.5.4
+  flutter_svg: ^1.1.5
+  google_fonts: ^3.0.1
   http: ^0.13.5
   provider: ^6.0.3
 
 dev_dependencies:
-
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
@@ -31,3 +33,5 @@ flutter:
 
   assets:
     - assets/
+    - assets/icons/
+    - assets/images/
