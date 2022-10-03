@@ -1,6 +1,8 @@
 
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:triller_zone/reusables/reusablesColor.dart';
 import 'package:triller_zone/reusables/reusabletext.dart';
 
 import '../../utils/utils.dart';
