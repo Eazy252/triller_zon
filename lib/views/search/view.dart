@@ -6,6 +6,8 @@ class SearchView extends StatelessView<SearchScreen, SearchController> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
@@ -25,6 +27,10 @@ class SearchView extends StatelessView<SearchScreen, SearchController> {
         ),
         TextField(
             decoration: InputDecoration(
+          focusColor: white.withOpacity(0.9),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30.r),
+          ),
           fillColor: grey,
           icon: SvgPicture.asset("assets/icons/search_unselected.svg"),
           hintText: "Search",
@@ -36,10 +42,122 @@ class SearchView extends StatelessView<SearchScreen, SearchController> {
         SizedBox(
           height: 20.h,
         ),
-        Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.vertical()),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Chip(
+              backgroundColor: grey,
+              label: ReusableText(
+                text: "All",
+                fontWeight: FontWeight.w400,
+                size: 14.sp,
+                color: white,
+              ),
+            ),
+            Chip(
+              backgroundColor: grey,
+              label: ReusableText(
+                text: "Animation(0)",
+                fontWeight: FontWeight.w400,
+                size: 14.sp,
+                color: white,
+              ),
+            ),
+            Chip(
+              backgroundColor: yellow,
+              label: ReusableText(
+                text: "Actions(3)",
+                fontWeight: FontWeight.w400,
+                size: 14.sp,
+                color: white,
+              ),
+            ),
+            // Chip(
+            //   backgroundColor: grey,
+            //   label: ReusableText(
+            //     text: "Comedy",
+            //     fontWeight: FontWeight.w400,
+            //     size: 14.sp,
+            //     color: white,
+            //   ),
+            // ),
+          ],
+        ),
+        SizedBox(
+          height: 32.h,
+        ),
+        //const DiscoveryMovieCardVertical(),
+
+        Expanded(
+          child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 10,
+              ),
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) {
+                return DiscoveryMovieCardVertical();
+              }),
         )
       ],
+    );
+  }
+}
+
+class DiscoveryMovieCardVertical extends StatelessWidget {
+  const DiscoveryMovieCardVertical({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 182.w,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            child: Stack(
+              children: [
+                SizedBox(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.r),
+                    child: Image.asset('assets/images/tor.jpg'),
+                  ),
+                ),
+                Positioned(
+                  top: 5.h,
+                  left: 16.w,
+                  right: -149.w,
+                  child:
+                      SvgPicture.asset("assets/icons/bookmark_unselected.svg"),
+                ),
+              ],
+            ),
+          ),
+          ReusableText(
+            text: 'Hitman\'s Wife\'s\nBodyguard',
+            size: 12.sp,
+            fontWeight: FontWeight.w700,
+          ),
+          Row(
+            children: [
+              ReusableText(
+                text: '3.5',
+                size: 14.sp,
+                fontWeight: FontWeight.w700,
+              ),
+              SizedBox(width: 15.w),
+              Icon(
+                Icons.star,
+                color: yellow,
+              )
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
