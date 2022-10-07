@@ -28,7 +28,7 @@ class BookmarkView extends StatelessView<BookmarkScreen, BookmarkController> {
           child: ListView.separated(
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) => const BookmarkCardVerticalView(),
-            separatorBuilder: (context, index) => const SizedBox(width: 20),
+            separatorBuilder: (context, index) => const SizedBox(height: 20),
             itemCount: 20,
           ),
         ),
@@ -78,25 +78,20 @@ class BookmarkCardVerticalView extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                   SizedBox(width: 9.w),
-                  Icon(
-                    Icons.star,
-                    color: yellow,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: yellow,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: yellow,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: yellow,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: grey,
+                  RatingBar.builder(
+                    unratedColor: white,
+                    initialRating: 3,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    itemCount: 5,
+                    itemSize: 20,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: Colors.yellow,
+                    ),
+                    onRatingUpdate: (rating) {},
                   ),
                 ],
               ),

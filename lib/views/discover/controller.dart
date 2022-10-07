@@ -1,5 +1,6 @@
 
 
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:triller_zone/reusables/reusablesColor.dart';
 import 'package:triller_zone/reusables/reusabletext.dart';

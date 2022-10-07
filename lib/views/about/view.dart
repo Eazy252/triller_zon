@@ -54,25 +54,19 @@ class AboutView extends StatelessView<AboutScreen, AboutController> {
             fontWeight: FontWeight.w700,
           ),
           SizedBox(width: 9.w),
-          Icon(
-            Icons.star,
-            color: yellow,
-          ),
-          Icon(
-            Icons.star,
-            color: yellow,
-          ),
-          Icon(
-            Icons.star,
-            color: yellow,
-          ),
-          Icon(
-            Icons.star,
-            color: yellow,
-          ),
-          Icon(
-            Icons.star,
-            color: grey,
+          RatingBar.builder(
+            unratedColor: white,
+            initialRating: 3,
+            minRating: 1,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemCount: 5,
+            itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+            itemBuilder: (context, _) => const Icon(
+              Icons.star,
+              color: Colors.yellow,
+            ),
+            onRatingUpdate: (rating) {},
           ),
         ]),
         SizedBox(
@@ -85,8 +79,7 @@ class AboutView extends StatelessView<AboutScreen, AboutController> {
           height: 50.h,
           width: double.infinity,
           child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  primary: Colors.yellow),
+              style: ElevatedButton.styleFrom(primary: Colors.yellow),
               onPressed: () {},
               child: ReusableText(
                 text: "Download",

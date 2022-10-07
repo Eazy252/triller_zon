@@ -1,6 +1,7 @@
 
 import 'dart:ui';
 
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:triller_zone/reusables/reusablesColor.dart';

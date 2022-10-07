@@ -25,7 +25,8 @@ class PopularMoviesView
             child: IndexedStack(
               index: controller.currentIndex,
               children: const [
-                AboutScreen(),
+                // AboutScreen(),
+                DiscoverScreen(),
                 SearchScreen(),
                 BookmarkScreen(),
               ],
