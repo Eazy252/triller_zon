@@ -1,7 +1,7 @@
 part of 'controller.dart';
 
-class BookmarkView extends StatelessView<BookmarkScreen, BookmarkController> {
-  const BookmarkView(BookmarkController state, {Key? key})
+class SeeMoreView extends StatelessView<SeeMoreScreen, SeeMoreController> {
+  const SeeMoreView(SeeMoreController state, {Key? key})
       : super(state, key: key);
 
   @override
@@ -15,9 +15,9 @@ class BookmarkView extends StatelessView<BookmarkScreen, BookmarkController> {
               width: 30.h,
             ),
             ReusableText(
-              text: "Bookmark",
+              text: "SeeMore",
               fontWeight: FontWeight.w700,
-              size: 20.sp,
+              size: 30.sp,
             )
           ],
         ),
@@ -27,7 +27,7 @@ class BookmarkView extends StatelessView<BookmarkScreen, BookmarkController> {
         Expanded(
           child: ListView.separated(
             scrollDirection: Axis.vertical,
-            itemBuilder: (context, index) => const BookmarkCardVerticalView(),
+            itemBuilder: (context, index) => const SeeMoreCardVerticalView(),
             separatorBuilder: (context, index) => const SizedBox(width: 20),
             itemCount: 20,
           ),
@@ -37,8 +37,78 @@ class BookmarkView extends StatelessView<BookmarkScreen, BookmarkController> {
   }
 }
 
-class BookmarkCardVerticalView extends StatelessWidget {
-  const BookmarkCardVerticalView({Key? key}) : super(key: key);
+class SeeMoreCardVerticalView extends StatelessWidget {
+  const SeeMoreCardVerticalView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column();
+  }
+}
+
+class MovieCardHorizontalView extends StatelessWidget {
+  const MovieCardHorizontalView({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 300.w,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15.r),
+                child: Image.asset('assets/images/placeholder.jpg'),
+              )
+            ],
+          ),
+          SizedBox(height: 12.h),
+          ReusableText(
+            text: 'Hitman\'s Wife\'s Bodyguard',
+            size: 12.sp,
+            fontWeight: FontWeight.w700,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ReusableText(
+                text: '3.5',
+                size: 14.sp,
+                fontWeight: FontWeight.w700,
+              ),
+              SizedBox(width: 9.w),
+              Icon(
+                Icons.star,
+                color: yellow,
+              ),
+              Icon(
+                Icons.star,
+                color: yellow,
+              ),
+              Icon(
+                Icons.star,
+                color: yellow,
+              ),
+              Icon(
+                Icons.star,
+                color: yellow,
+              ),
+              Icon(
+                Icons.star,
+                color: grey,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class MovieCardVerticalView extends StatelessWidget {
+  const MovieCardVerticalView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -100,21 +170,10 @@ class BookmarkCardVerticalView extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ReusableText(
-                    text: 'Action, Comedy, Crime',
-                    fontWeight: FontWeight.w400,
-                    size: 10.sp,
-                  ),
-                  ReusableText(
-                    text:
-                        "The world's most lethal odd couple - bodyguard Michael Bryce and hitman Darius Kincaid - are back on anoth......",
-                    fontWeight: FontWeight.w400,
-                    size: 8.sp,
-                  ),
-                ],
+              ReusableText(
+                text: 'Action, Comedy, Crime',
+                fontWeight: FontWeight.w400,
+                size: 8.sp,
               ),
               SizedBox(height: 10.h),
               const Spacer()

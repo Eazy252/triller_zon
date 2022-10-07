@@ -16,7 +16,7 @@ class SearchView extends StatelessView<SearchScreen, SearchController> {
               width: 30.h,
             ),
             ReusableText(
-              text: "Search",
+              text: "Search.",
               fontWeight: FontWeight.w700,
               size: 30.sp,
             )
@@ -42,45 +42,41 @@ class SearchView extends StatelessView<SearchScreen, SearchController> {
         SizedBox(
           height: 20.h,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+        Wrap(
           children: [
-            Chip(
-              backgroundColor: grey,
-              label: ReusableText(
-                text: "All",
-                fontWeight: FontWeight.w400,
-                size: 14.sp,
-                color: white,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Chip(
+                  backgroundColor: grey,
+                  label: ReusableText(
+                    text: "All",
+                    fontWeight: FontWeight.w400,
+                    size: 14.sp,
+                    color: white,
+                  ),
+                ),
+                Chip(
+                  backgroundColor: grey,
+                  label: ReusableText(
+                    text: "Animation(0)",
+                    fontWeight: FontWeight.w400,
+                    size: 14.sp,
+                    color: white,
+                  ),
+                ),
+                Chip(
+                  backgroundColor: yellow,
+                  label: ReusableText(
+                    text: "Actions(3)",
+                    fontWeight: FontWeight.w400,
+                    size: 14.sp,
+                    color: white,
+                  ),
+                ),
+              ],
             ),
-            Chip(
-              backgroundColor: grey,
-              label: ReusableText(
-                text: "Animation(0)",
-                fontWeight: FontWeight.w400,
-                size: 14.sp,
-                color: white,
-              ),
-            ),
-            Chip(
-              backgroundColor: yellow,
-              label: ReusableText(
-                text: "Actions(3)",
-                fontWeight: FontWeight.w400,
-                size: 14.sp,
-                color: white,
-              ),
-            ),
-            // Chip(
-            //   backgroundColor: grey,
-            //   label: ReusableText(
-            //     text: "Comedy",
-            //     fontWeight: FontWeight.w400,
-            //     size: 14.sp,
-            //     color: white,
-            //   ),
-            // ),
           ],
         ),
         SizedBox(
@@ -92,12 +88,12 @@ class SearchView extends StatelessView<SearchScreen, SearchController> {
           child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 20,
+                mainAxisSpacing: 170,
                 crossAxisSpacing: 10,
               ),
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
-                return DiscoveryMovieCardVertical();
+                return const DiscoveryMovieCardVertical();
               }),
         )
       ],
@@ -115,27 +111,21 @@ class DiscoveryMovieCardVertical extends StatelessWidget {
     return SizedBox(
       width: 182.w,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            child: Stack(
-              children: [
-                SizedBox(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.r),
-                    child: Image.asset('assets/images/tor.jpg'),
-                  ),
-                ),
-                Positioned(
-                  top: 5.h,
-                  left: 16.w,
-                  right: -149.w,
-                  child:
-                      SvgPicture.asset("assets/icons/bookmark_unselected.svg"),
-                ),
-              ],
-            ),
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15.r),
+                child: Image.asset('assets/images/tor.jpg'),
+              ),
+              Positioned(
+                top: 5.h,
+                left: 16.w,
+                right: -149.w,
+                child: SvgPicture.asset("assets/icons/bookmark_unselected.svg"),
+              ),
+            ],
           ),
           ReusableText(
             text: 'Hitman\'s Wife\'s\nBodyguard',
@@ -153,9 +143,11 @@ class DiscoveryMovieCardVertical extends StatelessWidget {
               Icon(
                 Icons.star,
                 color: yellow,
-              )
+              ),
+              SizedBox(height: 26.h),
             ],
           ),
+          //SizedBox(height: 26.h),
         ],
       ),
     );
